@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    function:
+      configuration:
+        # Demonstrating that the workaround from 2.7 is throwing an exception.
+        streamBridge:
+          output-header-mapping-expression:
+            timeToLive: 23000L
+            senderId: myApplicationName
+    stream:
+      bindings:
+        demoBinding-out-0:
+          destination: target-topic
+          binder: test
